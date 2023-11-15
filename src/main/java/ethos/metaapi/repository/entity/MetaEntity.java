@@ -11,10 +11,10 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "META")
+@Entity
 public class MetaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

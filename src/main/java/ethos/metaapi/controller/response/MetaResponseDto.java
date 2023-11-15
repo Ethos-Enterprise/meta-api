@@ -5,9 +5,9 @@ import ethos.metaapi.repository.entity.MetaEntity;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public record MetaResponse(UUID id, String pilarEsg, String descricao, LocalDate dataInicio, LocalDate dataFim) {
+public record MetaResponseDto(UUID id, String pilarEsg, String descricao, LocalDate dataInicio, LocalDate dataFim) {
 
-    public MetaResponse(MetaEntity metaEntity){
+    public MetaResponseDto(MetaEntity metaEntity){
         this(
                 metaEntity.getId(),
                 metaEntity.getPilarEsg(),

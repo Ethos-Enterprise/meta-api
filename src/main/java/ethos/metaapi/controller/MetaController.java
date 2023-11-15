@@ -1,7 +1,11 @@
 package ethos.metaapi.controller;
 
-import ethos.metaapi.controller.response.MetaResponse;
+import ethos.metaapi.controller.request.MetaCreateRequestDto;
+import ethos.metaapi.controller.response.MetaResponseDto;
+import ethos.metaapi.mapper.MetaMapper;
+import ethos.metaapi.repository.entity.MetaEntity;
 import ethos.metaapi.service.MetaService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -17,35 +21,53 @@ public class MetaController {
 
     private final MetaService service;
 
-    // @PostMapping
+    @PostMapping
+    @ResponseStatus(HttpStatus.OK)
+    public MetaResponseDto postMeta(@RequestBody @Valid MetaCreateRequestDto metaCreateRequestDto){
+        MetaEntity meta = MetaMapper.of(metaCreateRequestDto);
+        return service.saveMeta(meta);
+    }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<MetaResponse> getMetas(){
+    public List<MetaResponseDto> getMetas(){
         return service.getMetas();
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public MetaResponse getMetaById(@PathVariable UUID id){
+    public MetaResponseDto getMetaById(@PathVariable UUID id){
         return service.getMetaById(id);
     }
 
     @GetMapping("/busca-por-descricao")
     @ResponseStatus(HttpStatus.OK)
-    public List<MetaResponse> getMetaByDescricao(@RequestParam String descricao){
+    public List<MetaResponseDto> getMetaByDescricao(@RequestParam String descricao){
         return service.getMetaByDescricao(descricao);
     }
 
     @GetMapping("/busca-data-inicio")
     @ResponseStatus(HttpStatus.OK)
-    public List<MetaResponse> getMetaByDataInicio(@RequestParam LocalDate dataInicio){
+    public List<MetaResponseDto> getMetaByDataInicio(@RequestParam LocalDate dataInicio){
         return service.getMetaByDataInicio(dataInicio);
     }
 
     @GetMapping("/busca-data-fim")
     @ResponseStatus(HttpStatus.OK)
-    public List<MetaResponse> getMetaByDataFim(@RequestParam LocalDate dataFim){
+    public List<MetaResponseDto> getMetaByDataFim(@RequestParam LocalDate dataFim){
         return service.getMetaByDataFim(dataFim);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public MetaResponseDto putMeta(@PathVariable UUID id, @RequestBody @Valid MetaCreateRequestDto metaCreateRequestDto){
+        MetaEntity updatedMeta = MetaMapper.of(metaCreateRequestDto);
+        return service.updateMeta(updatedMeta, id);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteMeta(@PathVariable UUID id){
+        service.deleteMeta(id);
     }
 }

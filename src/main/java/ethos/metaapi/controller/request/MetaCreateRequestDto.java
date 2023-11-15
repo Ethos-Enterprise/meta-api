@@ -4,7 +4,7 @@ import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 
-public record MetaRequest(
+public record MetaCreateRequestDto(
     @NotNull
     String pilarEsg,
 
