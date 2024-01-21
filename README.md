@@ -6,4 +6,4 @@ Microserviço desenvolvido em Java, abrangendo todos os endpoints relacionados �
 
 - **Abrangência Total:** Todos os serviços relacionados às metas no Ethos são contemplados pelos endpoints deste microserviço.
 
-Certifique-se de explorar cada detalhe, e sinta-se à vontade para contribuir ou derivar funcionalidades conforme necessário. Este microserviço de metas desempenha um papel crucial na arquitetura do projeto Ethos, proporcionando uma base robusta para as operações relacionadas às metas estabelecidas.
+Este microserviço de metas desempenha um papel crucial na arquitetura do projeto Ethos, proporcionando às empresas uma base robusta para as operações relacionadas às metas ESG estabelecidas.
