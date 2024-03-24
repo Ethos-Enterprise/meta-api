@@ -7,6 +7,7 @@ public class MetaMapper {
     public static MetaEntity of(MetaCreateRequestDto metaRequest){
         MetaEntity metaEntity = new MetaEntity();
 
+        metaEntity.setPilarEsg(metaRequest.pilarEsg());
         metaEntity.setDescricao(metaRequest.descricao());
         metaEntity.setDataInicio(metaRequest.dataInicio());
         metaEntity.setDataFim(metaRequest.dataFim());
