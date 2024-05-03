@@ -38,6 +38,11 @@ public class MetaService {
         return meta.map(MetaResponseDto::new).get();
     }
 
+    public List<MetaResponseDto> getMetaByFkEmpresa(UUID fkEmpresa){
+        List<MetaEntity> metas = repository.findByFkEmpresa(fkEmpresa);
+        return metas.stream().map(MetaResponseDto::new).toList();
+    }
+
     public List<MetaResponseDto> getMetaByDescricao(String descricao){
         List<MetaEntity> meta = repository.findByDescricaoContainsIgnoreCase(descricao);
 

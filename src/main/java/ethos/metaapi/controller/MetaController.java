@@ -40,6 +40,12 @@ public class MetaController {
         return service.getMetaById(id);
     }
 
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<MetaResponseDto> getMetaByFkEmpresa(@PathVariable UUID fkEmpresa){
+        return service.getMetaByFkEmpresa(fkEmpresa);
+    }
+
     @GetMapping("/busca-por-descricao")
     @ResponseStatus(HttpStatus.OK)
     public List<MetaResponseDto> getMetaByDescricao(@RequestParam String descricao){

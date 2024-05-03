@@ -27,4 +27,6 @@ public class MetaEntity {
     private LocalDate dataInicio;
 
     private LocalDate dataFim;
+
+    private UUID fkEmpresa;
 }

@@ -14,4 +14,6 @@ public interface MetaRepository extends JpaRepository<MetaEntity, UUID> {
     List<MetaEntity> findByDataInicio(LocalDate dataInicio);
 
     List<MetaEntity> findByDataFim(LocalDate dataFim);
+
+    List<MetaEntity> findByFkEmpresa(UUID fkEmpresa);
 }
