@@ -39,7 +39,8 @@ class MetaApiApplicationTests {
                 "ESG",
                 "descricaoEmpresa",
                 LocalDate.parse("2024-01-10"),
-                LocalDate.parse("2024-10-30")
+                LocalDate.parse("2024-10-30"),
+                UUID.fromString("62b3105b-4d0e-4b98-bbca-19991ebcb099")
         );
     }
 
